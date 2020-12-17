@@ -1,4 +1,4 @@
-# PlaylistBotDiscord
+# Discord Playlist Bot
 
 This is a bot that can be added to a specific channel in your Discord server to grab a Spotify URL that was shared and add the song to a designated playlist.
 The song must receive 2(number can be changed) or more ❤️reactions to be added to the playlist.
