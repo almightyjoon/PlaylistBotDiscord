@@ -19,10 +19,9 @@ class Music(commands.Cog):
     # if 2 ❤ reactions are detected then add to playlist
     @commands.Cog.listener()
     async def on_raw_reaction_add(self, payload: discord.RawReactionActionEvent):
-        # 786639332147593244 is discord channel id for #music-sharing
-        # replace channel id with whatever channel bot will be used for
-        if payload.channel_id == 786639332147593244 and payload.emoji.name == "❤️":
-            channel = self.client.get_channel(786639332147593244)
+        # replace CHANNEL_ID_HERE with channel id for the channel the bot will be used for
+        if payload.channel_id == "CHANNEL_ID_HERE" and payload.emoji.name == "❤️":
+            channel = self.client.get_channel("CHANNEL_ID_HERE")
             message = await channel.fetch_message(payload.message_id)
             if message.author.bot:
                 return
@@ -65,32 +64,6 @@ class Music(commands.Cog):
 
         response_json = response.json()
         return response_json
-
-    # creates a playlist with custom playlist name, Discord Recommendations is default
-    # command works, but will eventually comeback to this
-    '''
-    @commands.command(aliases=['createplaylist'])
-    async def create_playlist(self, ctx, *, playlist_name="Discord Recommendations"):
-        request_body = json.dumps({
-            "name": playlist_name,
-            "description": "All liked songs",
-            "public": True
-        })
-
-        query = f"https://api.spotify.com/v1/users/{spotify_user_id}/playlists"
-        response = requests.post(
-            query,
-            data=request_body,
-            headers={
-                "Content-Type": "application/json",
-                "Authorization": f"Bearer {spotify_token}"
-            }
-        )
-        response_json = response.json()
-
-        # playlist id
-        return response_json["id"]
-    '''
 
 
 def setup(client):
