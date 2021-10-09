@@ -4,3 +4,4 @@
 spotify_token = ""
 spotify_user_id = ""
 playlist_id = ""
+discord_token = ""

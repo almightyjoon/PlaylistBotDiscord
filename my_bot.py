@@ -9,7 +9,7 @@ import builtins
 from discord.ext import commands
 from discord.utils import get
 from discord import Spotify
-from secrets import spotify_token, spotify_user_id
+from secrets import spotify_token, spotify_user_id, discord_token
 
 client = commands.Bot(command_prefix='.')
 
@@ -39,4 +39,4 @@ for filename in os.listdir('./cogs'):
     if filename.endswith('.py'):
         client.load_extension(f'cogs.{filename[:-3]}')
 
-client.run('Nzg3MTI0MTQyNDYxMDI2Mzc0.X9QYew.I8hZ-xPNgITEdN46_UEBMPHFOvk')
+client.run(discord_token)
